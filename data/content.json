@@ -362,7 +362,7 @@
     {
       "title": "Tombol unduh CV (PDF)",
       "why": "Recruiter sering butuh file CV untuk diteruskan ke HR.",
-      "done": false
+      "done": true
     },
     {
       "title": "Screenshot asli setiap proyek",
@@ -382,12 +382,12 @@
     {
       "title": "Pendidikan & sertifikasi",
       "why": "Bagian ini belum ada; biasanya dicari recruiter.",
-      "done": false
+      "done": true
     },
     {
       "title": "Versi bahasa Inggris",
       "why": "Tombol ID/EN membuka peluang ke perusahaan multinasional.",
-      "done": false
+      "done": true
     },
     {
       "title": "Statistik pengunjung",
