@@ -1,0 +1,403 @@
+{
+  "meta": {
+    "title": "Ramdi Kurniawan",
+    "description": "HRGA, Legal & IT Lead @ Heris Group — 11+ tahun di IT support & infrastruktur.",
+    "updated": "2026-09-21"
+  },
+  "profile": {
+    "firstName": "RAMDI",
+    "lastName": "KURNIAWAN",
+    "headline": "HRGA, Legal & IT Lead",
+    "company": "@ Heris Group",
+    "taglines": [
+      "Strategic Partner to Founder",
+      "11+ Years in IT Support & Infrastructure"
+    ],
+    "intro": "Membangun sistem HR, legal, dan IT untuk bisnis konstruksi & desain interior yang sedang tumbuh, bekerja langsung dengan founder.",
+    "statusOn": true,
+    "status": "Terbuka untuk peluang baru",
+    "photo": "assets/photo.webp",
+    "yearsLabel": "11+ tahun di IT & operasional"
+  },
+  "experience": [
+    {
+      "company": "PT Katam Sejahtera Makmur · Heris Kontraktor",
+      "role": "HRGA, IT, Legal & R&D",
+      "start": "Mei 2026",
+      "end": "Sekarang",
+      "summary": "Memegang empat fungsi sekaligus di perusahaan kontraktor dan desain interior yang sedang tumbuh: administrasi HR & GA, infrastruktur IT, dokumen legal, serta riset dan pengembangan. Bekerja langsung dengan pemilik perusahaan.",
+      "tags": [
+        "HR compliance",
+        "Sistem internal",
+        "Dokumen legal",
+        "R&D"
+      ],
+      "groups": []
+    },
+    {
+      "company": "PT Ruang Hidup Nyaman · Heris Living",
+      "role": "Sistem Operasional, Legal & Marketplace",
+      "start": "Mei 2026",
+      "end": "Sekarang",
+      "summary": "Mendukung bisnis bahan bangunan dan interior Heris Living: dokumentasi legal & operasional, sistem absensi dan penilaian kinerja karyawan Heris Group, serta pengelolaan toko di Shopee.",
+      "tags": [
+        "Konstruksi & interior",
+        "Shopee",
+        "Copywriting produk"
+      ],
+      "groups": []
+    },
+    {
+      "company": "PT Pretzelindo · Auntie Anne's Indonesia",
+      "role": "IT Support Specialist",
+      "start": "Sep 2021",
+      "end": "Mei 2026",
+      "summary": "Dukungan IT menyeluruh untuk kantor pusat dan jaringan outlet di seluruh Indonesia: helpdesk pengguna, pembukaan dan penutupan outlet, jaringan, hingga sistem POS dan digital signage.",
+      "tags": [
+        "Jira",
+        "POS",
+        "Digital signage",
+        "CCTV",
+        "Jaringan",
+        "Retail F&B"
+      ],
+      "groups": [
+        {
+          "title": "Dukungan pengguna",
+          "items": [
+            {
+              "term": "Troubleshooting",
+              "text": "menyelesaikan masalah software & hardware lewat tiket Jira"
+            },
+            {
+              "term": "Onboarding",
+              "text": "menyiapkan laptop/desktop untuk karyawan baru"
+            },
+            {
+              "term": "Offboarding",
+              "text": "menghapus data dan mereset perangkat karyawan yang resign secara aman agar siap dipakai kembali"
+            },
+            {
+              "term": "Dokumentasi",
+              "text": "menyusun panduan teknis dasar penggunaan IT"
+            }
+          ]
+        },
+        {
+          "title": "Infrastruktur & outlet",
+          "items": [
+            {
+              "term": "Outlet baru",
+              "text": "instalasi jaringan (router, switch, Wi-Fi) dan POS (terminal, printer, scanner)"
+            },
+            {
+              "term": "CCTV",
+              "text": "pemasangan dan konfigurasi di outlet dan kantor pusat"
+            },
+            {
+              "term": "Penutupan outlet",
+              "text": "membongkar dan mengemas perangkat IT secara sistematis tanpa kerusakan"
+            },
+            {
+              "term": "Kantor pusat",
+              "text": "printer, konfigurasi Zoom, dan rak server"
+            },
+            {
+              "term": "Perjalanan dinas",
+              "text": "dukungan teknis langsung ke outlet di berbagai kota di Indonesia"
+            }
+          ]
+        },
+        {
+          "title": "Jaringan",
+          "items": [
+            {
+              "term": "Cabling",
+              "text": "manajemen kabel terstruktur dan pemasangan RJ45"
+            },
+            {
+              "term": "Perangkat jaringan",
+              "text": "konfigurasi dasar dan troubleshooting switch, router, access point"
+            },
+            {
+              "term": "Vendor",
+              "text": "koordinasi dengan ISP dan vendor eksternal"
+            }
+          ]
+        },
+        {
+          "title": "POS & digital signage",
+          "items": [
+            {
+              "term": "POS backend",
+              "text": "pembaruan rutin, manajemen voucher dan pengguna"
+            },
+            {
+              "term": "Digital signage",
+              "text": "mengelola dan memperbarui konten di semua outlet"
+            },
+            {
+              "term": "Sinkronisasi",
+              "text": "memastikan tampilan outlet berjalan dan sinkron dengan sistem HO"
+            }
+          ]
+        },
+        {
+          "title": "Aset IT",
+          "items": [
+            {
+              "term": "Penerimaan barang",
+              "text": "verifikasi pembelian dan kondisi fisik"
+            },
+            {
+              "term": "Pencatatan aset",
+              "text": "pencatatan dan pelabelan setiap perangkat"
+            },
+            {
+              "term": "Stocktake",
+              "text": "pemeriksaan fisik suku cadang dan hardware setiap bulan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "company": "PT Lautan Luas Tbk",
+      "role": "IT Support & Helpdesk",
+      "start": "Apr 2015",
+      "end": "Sep 2021",
+      "summary": "Garda depan helpdesk di perusahaan terbuka: menangani kendala pengguna, menyalurkan tiket ke teknisi yang tepat, serta menjaga perangkat dan aset kantor tetap siap pakai.",
+      "tags": [
+        "ManageEngine",
+        "Helpdesk",
+        "Printer & scanner",
+        "Perusahaan Tbk"
+      ],
+      "groups": [
+        {
+          "title": "Dukungan pengguna",
+          "items": [
+            {
+              "term": "Troubleshooting",
+              "text": "software, hardware, printer & scanner lewat tiket ManageEngine"
+            },
+            {
+              "term": "Onboarding",
+              "text": "laptop/desktop karyawan baru, termasuk koneksi printer dan scanner"
+            },
+            {
+              "term": "Offboarding",
+              "text": "menghapus data dan mereset perangkat karyawan yang resign secara aman"
+            },
+            {
+              "term": "Dokumentasi",
+              "text": "menyusun panduan teknis dasar penggunaan IT"
+            }
+          ]
+        },
+        {
+          "title": "Jaringan & perangkat",
+          "items": [
+            {
+              "term": "Cabling",
+              "text": "manajemen kabel LAN dan pemasangan RJ45"
+            },
+            {
+              "term": "Konfigurasi",
+              "text": "troubleshooting jaringan printer, scanner, server, dan storage"
+            },
+            {
+              "term": "Vendor",
+              "text": "koordinasi dengan penyedia komputer, printer, dan scanner"
+            }
+          ]
+        },
+        {
+          "title": "Helpdesk & aset",
+          "items": [
+            {
+              "term": "Manajemen tiket",
+              "text": "memastikan tiket dari karyawan tersalurkan ke teknisi yang tepat"
+            },
+            {
+              "term": "Penerimaan barang",
+              "text": "verifikasi pembelian dan kondisi fisik"
+            },
+            {
+              "term": "Pencatatan aset",
+              "text": "pencatatan berkala dan pelabelan setiap perangkat"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "sys",
+      "label": "Sistem Internal"
+    },
+    {
+      "id": "biz",
+      "label": "Bisnis & Toko"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Helpdesk IT — dashboard tiket permintaan & masalah",
+      "desc": "Dashboard tiket internal yang di-host sendiri, dengan notifikasi Telegram untuk setiap tiket baru.",
+      "category": "sys",
+      "mark": "IT",
+      "tags": [
+        "Supabase",
+        "GitHub Pages",
+        "Telegram"
+      ],
+      "link": ""
+    },
+    {
+      "title": "MyHeris — aplikasi absensi karyawan",
+      "desc": "PWA mobile-first untuk absensi karyawan Heris Group, dengan Google Sheets sebagai basis data.",
+      "category": "sys",
+      "mark": "MH",
+      "tags": [
+        "PWA",
+        "Google Sheets",
+        "Heris Group"
+      ],
+      "link": ""
+    },
+    {
+      "title": "Omni Review — penilaian kinerja 360°",
+      "desc": "Aplikasi web penilaian kinerja kuartalan untuk perusahaan desain interior dengan 14 karyawan.",
+      "category": "sys",
+      "mark": "360",
+      "tags": [
+        "HR",
+        "Web app",
+        "Kuartalan"
+      ],
+      "link": ""
+    },
+    {
+      "title": "YR Store — toko online pribadi",
+      "desc": "Toko online milik sendiri, dibangun untuk web dan aplikasi mobile.",
+      "category": "biz",
+      "mark": "YR",
+      "tags": [
+        "E-commerce",
+        "Web",
+        "Mobile"
+      ],
+      "link": ""
+    },
+    {
+      "title": "Heris Living — toko Shopee",
+      "desc": "Copywriting produk dan operasional marketplace untuk toko bahan bangunan & interior.",
+      "category": "biz",
+      "mark": "HL",
+      "tags": [
+        "Shopee",
+        "Copywriting"
+      ],
+      "link": ""
+    }
+  ],
+  "skills": [
+    {
+      "label": "IT",
+      "title": "Support & Sistem",
+      "items": [
+        "Helpdesk & troubleshooting",
+        "Infrastruktur kantor & outlet",
+        "Aplikasi internal (web & PWA)"
+      ]
+    },
+    {
+      "label": "HRGA",
+      "title": "SDM & Umum",
+      "items": [
+        "Administrasi & kepatuhan HR",
+        "Absensi & penilaian kinerja",
+        "General affairs"
+      ]
+    },
+    {
+      "label": "Legal",
+      "title": "Dokumen & Kontrak",
+      "items": [
+        "Penyusunan dokumen legal",
+        "Dokumentasi operasional",
+        "Administrasi perusahaan"
+      ]
+    },
+    {
+      "label": "Operasional",
+      "title": "Bisnis & Marketplace",
+      "items": [
+        "Operasional toko Shopee",
+        "Copywriting produk",
+        "Riset & pengembangan"
+      ]
+    }
+  ],
+  "contact": {
+    "email": "ramdi.kurniawan@gmail.com",
+    "whatsapp": "082114150617",
+    "linkedin": "https://www.linkedin.com/in/ramdi-kurniawan/",
+    "github": "https://github.com/RMDKIT2026",
+    "location": "Indonesia"
+  },
+  "ideas": [
+    {
+      "title": "Pasang domain sendiri",
+      "why": "ramdikurniawan.my.id atau .com terlihat jauh lebih profesional di CV dan LinkedIn daripada alamat github.io.",
+      "done": false
+    },
+    {
+      "title": "Tambahkan link website di LinkedIn",
+      "why": "Taruh di bagian Contact info dan Featured supaya recruiter menemukannya.",
+      "done": false
+    },
+    {
+      "title": "Tombol unduh CV (PDF)",
+      "why": "Recruiter sering butuh file CV untuk diteruskan ke HR.",
+      "done": false
+    },
+    {
+      "title": "Screenshot asli setiap proyek",
+      "why": "Tampilan nyata Helpdesk IT, MyHeris, dan Omni Review lebih meyakinkan daripada kotak inisial.",
+      "done": false
+    },
+    {
+      "title": "Angka pencapaian nyata",
+      "why": "Contoh: jumlah outlet yang Anda setup atau tiket yang ditangani per bulan — hanya jika datanya ada.",
+      "done": false
+    },
+    {
+      "title": "Testimoni atasan atau rekan kerja",
+      "why": "Satu-dua kutipan singkat menambah kepercayaan, terutama dari founder.",
+      "done": false
+    },
+    {
+      "title": "Pendidikan & sertifikasi",
+      "why": "Bagian ini belum ada; biasanya dicari recruiter.",
+      "done": false
+    },
+    {
+      "title": "Versi bahasa Inggris",
+      "why": "Tombol ID/EN membuka peluang ke perusahaan multinasional.",
+      "done": false
+    },
+    {
+      "title": "Statistik pengunjung",
+      "why": "GoatCounter atau Cloudflare Web Analytics gratis dan tanpa cookie, untuk tahu berapa orang yang membuka website.",
+      "done": false
+    },
+    {
+      "title": "Formulir kontak",
+      "why": "Formspree (gratis) memungkinkan pengunjung mengirim pesan tanpa membuka email.",
+      "done": false
+    }
+  ]
+}
