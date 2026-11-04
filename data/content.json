@@ -2,7 +2,7 @@
   "meta": {
     "title": "Ramdi Kurniawan",
     "description": "HRGA, Legal & IT Lead @ Heris Group — 11+ tahun di IT support & infrastruktur.",
-    "updated": "2026-09-21"
+    "updated": "2026-11-04"
   },
   "profile": {
     "firstName": "RAMDI",
@@ -253,7 +253,17 @@
         "GitHub Pages",
         "Telegram"
       ],
-      "link": ""
+      "link": "",
+      "role": "Perancang & pembangun",
+      "timeline": "2026",
+      "status": "",
+      "detail": "Sistem tiket internal untuk mencatat permintaan dan masalah IT dari karyawan, supaya tidak ada lagi laporan yang tercecer di chat pribadi.\nSetiap tiket baru langsung dikirim sebagai notifikasi Telegram, jadi bisa ditangani lebih cepat dan riwayatnya tersimpan rapi.",
+      "highlights": [
+        "Tiket permintaan & masalah dalam satu dashboard",
+        "Notifikasi Telegram otomatis untuk tiket baru",
+        "Di-host gratis: GitHub Pages + Supabase"
+      ],
+      "image": ""
     },
     {
       "title": "MyHeris — aplikasi absensi karyawan",
@@ -265,7 +275,17 @@
         "Google Sheets",
         "Heris Group"
       ],
-      "link": ""
+      "link": "",
+      "role": "Perancang & pembangun",
+      "timeline": "2026",
+      "status": "",
+      "detail": "Aplikasi absensi berbasis web yang bisa dipasang di HP seperti aplikasi biasa (PWA), dibuat untuk karyawan Heris Group.\nData tersimpan di Google Sheets sehingga tim HR bisa langsung mengolah rekap tanpa sistem tambahan.",
+      "highlights": [
+        "Mobile-first, bisa dipasang di layar utama HP",
+        "Google Sheets sebagai basis data",
+        "Rekap absensi langsung bisa diolah HR"
+      ],
+      "image": ""
     },
     {
       "title": "Omni Review — penilaian kinerja 360°",
@@ -277,7 +297,40 @@
         "Web app",
         "Kuartalan"
       ],
-      "link": ""
+      "link": "",
+      "role": "Perancang & pembangun",
+      "timeline": "2026",
+      "status": "Sudah online",
+      "detail": "Sistem penilaian kinerja kuartalan dengan pendekatan 360°: karyawan menilai diri sendiri, rekan menilai secara anonim, dan atasan menilai pencapaian target.\nDirancang untuk 8 divisi, dari sales, drafter, dan arsitek sampai tim proyek dan pelaksana lapangan, dengan peran berbeda untuk direktur, admin, atasan, dan karyawan.",
+      "highlights": [
+        "Bobot penilaian: KPI, peer review anonim, atasan, dan self-assessment",
+        "Skala 1–5 dari Unsatisfactory sampai Outstanding",
+        "Siklus per kuartal untuk 14 karyawan"
+      ],
+      "image": ""
+    },
+    {
+      "title": "Asset Management IT — inventaris aset kantor",
+      "desc": "Aplikasi pencatatan aset IT kantor dengan label QR yang bisa dipindai lewat HP dan dicetak dari printer thermal.",
+      "category": "sys",
+      "mark": "QR",
+      "tags": [
+        "Django",
+        "Python",
+        "QR code",
+        "Printer thermal"
+      ],
+      "link": "",
+      "role": "Perancang & pembangun",
+      "timeline": "2026",
+      "status": "Sudah dipakai",
+      "detail": "Mencatat laptop, monitor, dan komputer kantor lengkap dengan lokasi dan pemakainya. Setiap aset punya label QR yang berisi data lengkap dan bisa dibaca aplikasi pemindai apa pun.\nLabel dicetak langsung dari printer thermal Bluetooth 58 mm, dan serah terima aset ke karyawan menghasilkan formulir yang siap ditandatangani.",
+      "highlights": [
+        "Label QR dicetak dari printer thermal 58 mm",
+        "Scan aset langsung dari HP",
+        "Formulir serah terima aset siap cetak"
+      ],
+      "image": ""
     },
     {
       "title": "YR Store — toko online pribadi",
@@ -289,7 +342,17 @@
         "Web",
         "Mobile"
       ],
-      "link": ""
+      "link": "",
+      "role": "Pemilik & pembangun",
+      "timeline": "2026",
+      "status": "Dalam pengembangan",
+      "detail": "Toko online milik sendiri untuk perlengkapan dan aksesoris furnitur, dibangun dari nol: katalog per kategori, keranjang, pembayaran, dan pengiriman.\nDikerjakan bertahap, dimulai dari backend, toko web, dan panel admin, lalu aplikasi mobile.",
+      "highlights": [
+        "Katalog, keranjang, dan panel admin",
+        "Rencana integrasi kurir JNE, POS, SPX, dan same-day",
+        "Pembayaran transfer manual + payment gateway"
+      ],
+      "image": ""
     },
     {
       "title": "Heris Living — toko Shopee",
@@ -300,7 +363,17 @@
         "Shopee",
         "Copywriting"
       ],
-      "link": ""
+      "link": "",
+      "role": "Copywriting & operasional",
+      "timeline": "2026 – sekarang",
+      "status": "Berjalan",
+      "detail": "Mengelola toko Shopee Heris Living yang menjual hardware, lem, aksesoris furnitur, dan produk kayu custom.\nMenulis judul dan deskripsi produk yang jelas dan ramah SEO, juga untuk Tokopedia dan TikTok Shop.",
+      "highlights": [
+        "Copywriting judul & deskripsi untuk banyak SKU",
+        "Format deskripsi yang ringkas dan konsisten",
+        "Marketplace: Shopee, Tokopedia, TikTok Shop"
+      ],
+      "image": ""
     }
   ],
   "skills": [
@@ -346,7 +419,7 @@
     "whatsapp": "082114150617",
     "linkedin": "https://www.linkedin.com/in/ramdi-kurniawan/",
     "github": "https://github.com/ramdipc",
-    "location": "Binong Permai, Kec. Curug, Kab.Tangerang"
+    "location": "Tangerang, Banten"
   },
   "ideas": [
     {
@@ -366,7 +439,7 @@
     },
     {
       "title": "Screenshot asli setiap proyek",
-      "why": "Tampilan nyata Helpdesk IT, MyHeris, dan Omni Review lebih meyakinkan daripada kotak inisial.",
+      "why": "Kartu & halaman detail proyek sudah siap; tinggal unggah screenshot lewat tab Proyek.",
       "done": false
     },
     {

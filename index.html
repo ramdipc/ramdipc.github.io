@@ -52,6 +52,8 @@ button{font:inherit;color:inherit}
 .topnav a:hover{color:var(--ink)}
 .topnav a.active{color:var(--paper)}
 .topnav a svg{width:17px;height:17px;display:none}
+.topnav a .cnt{font-family:var(--mono);font-size:10px;font-weight:500;opacity:.55;align-self:flex-start;margin:9px 0 0 -4px}
+.topnav a .cnt:empty{display:none}
 .theme-btn{width:40px;height:40px;border-radius:50%;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;color:var(--ink-2);transition:background .25s,transform .4s var(--spring)}
 .theme-btn:hover{background:var(--line);color:var(--ink)}
 .theme-btn:active{transform:rotate(-30deg) scale(.9)}
@@ -95,8 +97,8 @@ button{font:inherit;color:inherit}
 .intro h2{font-family:var(--display);font-weight:600;font-stretch:100%;font-size:clamp(22px,2.4vw,28px);margin:0;line-height:1.15;text-wrap:balance}
 .sub{display:flex;flex-direction:column;gap:2px;font-size:15px;font-weight:600;color:var(--ink-2)}
 .intro p{margin:0;color:var(--ink-2);font-size:15px}
-.portrait{align-self:end;display:block;width:100%;height:auto;max-width:100%;filter:saturate(.9) contrast(1.03);transition:transform .8s var(--ease)}
-.hero:hover .portrait{transform:translateY(-4px)}
+.portrait{align-self:end;display:block;width:100%;height:auto;max-width:100%;filter:grayscale(1) contrast(1.1) brightness(1.03);transition:transform .8s var(--ease),filter 1.2s var(--ease)}
+.hero:hover .portrait{transform:translateY(-4px);filter:grayscale(.85) contrast(1.1) brightness(1.03)}
 .socials{display:flex;flex-direction:column;align-items:flex-end;gap:10px;padding-bottom:clamp(24px,4vw,48px)}
 .pill{display:inline-flex;align-items:center;gap:9px;min-height:40px;background:var(--chip);border:1px solid var(--line);padding:0 16px 0 12px;border-radius:999px;font-size:13.5px;font-weight:500;text-decoration:none;transition:transform .3s var(--spring),border-color .25s,background-color .25s,color .25s}
 .pill svg{width:16px;height:16px}
@@ -110,6 +112,14 @@ button{font:inherit;color:inherit}
 .head h2{margin:0;font-family:var(--display);font-weight:700;font-stretch:100%;font-size:clamp(28px,3.6vw,42px);letter-spacing:-.01em;line-height:1}
 .head p{margin:0;font-size:14px}
 .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+
+/* ---------- stats strip ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-block:clamp(22px,3vw,36px)}
+.stat{display:flex;flex-direction:column;gap:6px;padding:4px clamp(14px,2vw,28px);border-left:1px solid var(--line)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{font-family:var(--display);font-weight:800;font-stretch:118%;font-size:clamp(40px,5.6vw,72px);line-height:.95;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.stat:nth-child(odd) b{color:transparent;-webkit-text-stroke:1.6px var(--ink)}
+.stat span{font-size:13.5px;color:var(--ink-2);font-weight:500}
 
 /* ---------- experience ---------- */
 .dark{background:var(--panel);color:var(--panel-ink)}
@@ -132,7 +142,16 @@ button{font:inherit;color:inherit}
 .acc .body>p{margin:0;color:var(--panel-mute);max-width:60ch;font-size:15px}
 .tags{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
 .tag{font-size:12px;padding:5px 11px;border-radius:999px;border:1px solid var(--panel-line);color:var(--panel-ink)}
-.groups{grid-column:1 / -1;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px 36px;padding-top:18px;border-top:1px dashed var(--panel-line)}
+.more{grid-column:1 / -1;justify-self:start;display:inline-flex;align-items:center;gap:10px;min-height:40px;padding:0 8px 0 16px;border-radius:999px;border:1px solid var(--panel-line);background:transparent;color:var(--panel-ink);font-size:13.5px;font-weight:600;cursor:pointer;transition:background-color .25s,color .25s}
+.more:hover{background:var(--panel-ink);color:var(--panel)}
+.more .i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--panel-ink) 10%,transparent);transition:transform .45s var(--spring)}
+.more .i svg{width:11px;height:11px}
+.more[aria-expanded="true"] .i{transform:rotate(180deg)}
+.more .n{font-family:var(--mono);font-size:11px;opacity:.6}
+.gwrap{grid-column:1 / -1;display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.gwrap.open{grid-template-rows:1fr}
+.gwrap>div{overflow:hidden}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px 36px;padding-top:18px;border-top:1px dashed var(--panel-line)}
 .grp h4{margin:0 0 10px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--panel-mute)}
 .grp ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;font-size:14px;line-height:1.5;color:var(--panel-mute)}
 .grp li b{color:var(--panel-ink);font-weight:600}
@@ -158,6 +177,10 @@ button{font:inherit;color:inherit}
 .card:hover .big{transform:translate(-8px,-6px);-webkit-text-stroke-color:#8A8A85}
 .screen .r{height:10px;border-radius:3px;background:#343432;transition:width .6s var(--ease)}
 .screen .r.a{background:#E9E9E4}
+.screen.shot{padding:0;background:#141413}
+.screen.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(1) contrast(1.05);transform:scale(1.001);transition:filter .7s var(--ease),transform .9s var(--ease)}
+.card:hover .screen.shot img{filter:none;transform:scale(1.035)}
+button.card{font:inherit;text-align:left;padding:0;cursor:pointer;color:inherit;width:100%}
 .card-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
 .card h3{margin:0;font-weight:600;font-size:clamp(18px,1.8vw,21px);line-height:1.3}
 .card p{margin:0;color:var(--ink-2);font-size:14.5px}
@@ -188,8 +211,59 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
 .toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translate(-50%,20px);background:var(--ink);color:var(--paper);padding:12px 18px;border-radius:999px;font-size:14px;font-weight:500;opacity:0;pointer-events:none;transition:opacity .25s,transform .45s var(--spring);z-index:60}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
+/* ---------- project detail (case study) ---------- */
+.case{position:fixed;inset:0;width:100%;max-width:none;height:100%;max-height:none;margin:0;padding:clamp(10px,2vw,28px);border:0;background:transparent;color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
+.case::backdrop{background:color-mix(in srgb,var(--ground) 72%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.case[open] .case-sheet{animation:caseIn .6s var(--spring) both}
+.case.closing .case-sheet{animation:caseOut .28s var(--ease) both}
+.case.closing::backdrop{opacity:0;transition:opacity .28s}
+@keyframes caseIn{from{opacity:0;transform:translateY(40px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes caseOut{to{opacity:0;transform:translateY(24px) scale(.99)}}
+.case-sheet{max-width:1180px;margin:0 auto;background:var(--paper);border-radius:16px;box-shadow:var(--shadow);padding:clamp(20px,4vw,56px);position:relative;overflow:hidden}
+.case-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.back{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 18px 0 12px;border-radius:999px;border:1px solid var(--line);background:var(--chip);font-size:13.5px;font-weight:600;cursor:pointer;transition:transform .3s var(--spring),background-color .25s,color .25s}
+.back svg{width:14px;height:14px;transition:transform .35s var(--spring)}
+.back:hover{background:var(--ink);color:var(--paper)}
+.back:hover svg{transform:translateX(-3px)}
+.case-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(220px,1fr);gap:clamp(24px,4vw,64px);margin-top:clamp(28px,4vw,52px);align-items:start}
+.case .chips{display:flex;flex-wrap:wrap;gap:8px}
+.case .chip{font-size:12.5px;font-weight:500;padding:6px 13px;border-radius:999px;border:1px solid var(--line);background:var(--chip)}
+.case-title{margin:18px 0 0;font-family:var(--display);font-weight:800;font-stretch:108%;font-size:clamp(34px,5.4vw,68px);line-height:.98;letter-spacing:-.005em;text-wrap:balance}
+.case-title small{display:inline-block;font-family:var(--body);font-weight:500;font-stretch:100%;font-size:clamp(14px,1.5vw,17px);color:var(--mute);letter-spacing:0;margin-left:10px;vertical-align:middle}
+.case-sub{margin:10px 0 0;font-size:clamp(16px,1.6vw,19px);color:var(--ink-2);font-weight:600}
+.case-desc{margin:18px 0 0;color:var(--ink-2);font-size:15.5px;max-width:58ch}
+.case .cta-row{margin-top:26px}
+.meta{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.meta>div{display:grid;gap:6px;padding:16px 0;border-bottom:1px solid var(--line)}
+.meta dt{margin:0}
+.meta dd{margin:0;font-size:clamp(17px,1.8vw,22px);font-weight:600;line-height:1.3}
+.meta .tools{display:flex;flex-wrap:wrap;gap:6px;font-size:13px;font-weight:500}
+.meta .tools span{padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--chip)}
+.case-media{margin-top:clamp(28px,4vw,52px);border-radius:14px;overflow:hidden;background:#141413;border:1px solid var(--line);position:relative}
+.case-media img{display:block;width:100%;height:auto}
+.case-media .screen{aspect-ratio:16/7}
+.case-body{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(220px,1fr);gap:clamp(24px,4vw,64px);margin-top:clamp(28px,4vw,48px)}
+.case-body h3{margin:0 0 12px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.case-body p{margin:0 0 12px;color:var(--ink-2);font-size:15.5px;max-width:62ch}
+.case-body ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.case-body li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15px;color:var(--ink-2)}
+.case-body li::before{content:"";width:12px;height:1.5px;background:var(--ink);margin-top:.75em}
+.case-nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:clamp(32px,5vw,56px);padding-top:22px;border-top:1px solid var(--line)}
+.case-nav button{display:flex;flex-direction:column;gap:4px;max-width:46%;border:0;background:none;cursor:pointer;text-align:left;padding:4px 0}
+.case-nav button.nx{text-align:right;margin-left:auto}
+.case-nav b{font-size:clamp(15px,1.6vw,18px);font-weight:600;transition:opacity .25s}
+.case-nav button:hover b{opacity:.6}
+body.locked{overflow:hidden}
+
+/* ---------- scroll reveal ---------- */
+.rv-on .rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0) * 70ms)}
+.rv-on .rv.seen{opacity:1;transform:none}
+
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr 1fr}
+  .case-grid,.case-body{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px}
+  .stat:nth-child(3){border-left:0;padding-left:0}
   .portrait{grid-column:1 / -1;grid-row:1;width:min(320px,100%);justify-self:center}
   .socials{align-items:flex-start;flex-direction:row;flex-wrap:wrap;grid-column:1 / -1}
   .intro{grid-column:1 / -1;padding-bottom:0;max-width:none}
@@ -202,6 +276,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
   .topnav{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);padding:5px}
   .topnav a{flex-direction:column;gap:2px;min-height:50px;padding:0 10px;font-size:10.5px;justify-content:center}
   .topnav a svg{display:block}
+  .topnav a .cnt{display:none}
   .toast{bottom:calc(env(safe-area-inset-bottom,0px) + 96px)}
   html{scroll-padding-top:16px}
 }
@@ -228,9 +303,9 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
   <div class="links" id="navlinks">
     <span class="ind" aria-hidden="true"></span>
     <a href="#beranda" data-s="beranda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg>Beranda</a>
-    <a href="#pengalaman" data-s="pengalaman"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>Pengalaman</a>
-    <a href="#karya" data-s="karya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Karya</a>
-    <a href="#keahlian" data-s="keahlian"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>Keahlian</a>
+    <a href="#pengalaman" data-s="pengalaman"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>Pengalaman<span class="cnt" id="cntExp"></span></a>
+    <a href="#karya" data-s="karya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Karya<span class="cnt" id="cntWork"></span></a>
+    <a href="#keahlian" data-s="keahlian"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>Keahlian<span class="cnt" id="cntSkill"></span></a>
     <a href="#kontak" data-s="kontak"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Kontak</a>
   </div>
   <span class="sep" aria-hidden="true"></span>
@@ -259,6 +334,8 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
     </div>
   </section>
 
+  <section class="sheet" aria-label="Ringkasan angka"><div class="stats" id="stats"></div></section>
+
   <section class="sheet dark" id="pengalaman" aria-labelledby="exp-h">
     <div class="wm" aria-hidden="true">PERJALANAN</div>
     <div class="head"><h2 id="exp-h">/PENGALAMAN</h2><p id="years"></p></div>
@@ -276,7 +353,8 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
   </section>
 
   <section class="sheet" id="keahlian" aria-labelledby="sk-h">
-    <div class="head"><h2 id="sk-h">/KEAHLIAN</h2><p class="lbl">Empat bidang, satu orang</p></div>
+    <div class="wm" aria-hidden="true">KEAHLIAN</div>
+    <div class="head" style="margin-top:clamp(18px,3vw,40px)"><h2 id="sk-h">/KEAHLIAN</h2><p class="lbl">Empat bidang, satu orang</p></div>
     <div class="skills" id="skills"></div>
   </section>
 
@@ -292,12 +370,14 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
 
   <footer><span id="copy"></span><span id="updated"></span></footer>
 </main>
+<dialog class="case" id="case" aria-labelledby="caseTitle"><div class="case-sheet" id="caseSheet"></div></dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script type="application/json" id="seed">{"meta": {"title": "Ramdi Kurniawan", "description": "HRGA, Legal & IT Lead @ Heris Group — 11+ tahun di IT support & infrastruktur.", "updated": "2026-09-21"}, "profile": {"firstName": "RAMDI", "lastName": "KURNIAWAN", "headline": "HRGA, Legal & IT Lead", "company": "@ Heris Group", "taglines": ["Strategic Partner to Founder", "11+ Years in IT Support & Infrastructure"], "intro": "Membangun sistem HR, legal, dan IT untuk bisnis konstruksi & desain interior yang sedang tumbuh, bekerja langsung dengan founder.", "statusOn": true, "status": "Terbuka untuk peluang baru", "photo": "assets/photo.webp", "yearsLabel": "11+ tahun di IT & operasional"}, "experience": [{"company": "PT Katam Sejahtera Makmur · Heris Kontraktor", "role": "HRGA, IT, Legal & R&D", "start": "Mei 2026", "end": "Sekarang", "summary": "Memegang empat fungsi sekaligus di perusahaan kontraktor dan desain interior yang sedang tumbuh: administrasi HR & GA, infrastruktur IT, dokumen legal, serta riset dan pengembangan. Bekerja langsung dengan pemilik perusahaan.", "tags": ["HR compliance", "Sistem internal", "Dokumen legal", "R&D"], "groups": []}, {"company": "PT Ruang Hidup Nyaman · Heris Living", "role": "Sistem Operasional, Legal & Marketplace", "start": "Mei 2026", "end": "Sekarang", "summary": "Mendukung bisnis bahan bangunan dan interior Heris Living: dokumentasi legal & operasional, sistem absensi dan penilaian kinerja karyawan Heris Group, serta pengelolaan toko di Shopee.", "tags": ["Konstruksi & interior", "Shopee", "Copywriting produk"], "groups": []}, {"company": "PT Pretzelindo · Auntie Anne's Indonesia", "role": "IT Support Specialist", "start": "Sep 2021", "end": "Mei 2026", "summary": "Dukungan IT menyeluruh untuk kantor pusat dan jaringan outlet di seluruh Indonesia: helpdesk pengguna, pembukaan dan penutupan outlet, jaringan, hingga sistem POS dan digital signage.", "tags": ["Jira", "POS", "Digital signage", "CCTV", "Jaringan", "Retail F&B"], "groups": [{"title": "Dukungan pengguna", "items": [{"term": "Troubleshooting", "text": "menyelesaikan masalah software & hardware lewat tiket Jira"}, {"term": "Onboarding", "text": "menyiapkan laptop/desktop untuk karyawan baru"}, {"term": "Offboarding", "text": "menghapus data dan mereset perangkat karyawan yang resign secara aman agar siap dipakai kembali"}, {"term": "Dokumentasi", "text": "menyusun panduan teknis dasar penggunaan IT"}]}, {"title": "Infrastruktur & outlet", "items": [{"term": "Outlet baru", "text": "instalasi jaringan (router, switch, Wi-Fi) dan POS (terminal, printer, scanner)"}, {"term": "CCTV", "text": "pemasangan dan konfigurasi di outlet dan kantor pusat"}, {"term": "Penutupan outlet", "text": "membongkar dan mengemas perangkat IT secara sistematis tanpa kerusakan"}, {"term": "Kantor pusat", "text": "printer, konfigurasi Zoom, dan rak server"}, {"term": "Perjalanan dinas", "text": "dukungan teknis langsung ke outlet di berbagai kota di Indonesia"}]}, {"title": "Jaringan", "items": [{"term": "Cabling", "text": "manajemen kabel terstruktur dan pemasangan RJ45"}, {"term": "Perangkat jaringan", "text": "konfigurasi dasar dan troubleshooting switch, router, access point"}, {"term": "Vendor", "text": "koordinasi dengan ISP dan vendor eksternal"}]}, {"title": "POS & digital signage", "items": [{"term": "POS backend", "text": "pembaruan rutin, manajemen voucher dan pengguna"}, {"term": "Digital signage", "text": "mengelola dan memperbarui konten di semua outlet"}, {"term": "Sinkronisasi", "text": "memastikan tampilan outlet berjalan dan sinkron dengan sistem HO"}]}, {"title": "Aset IT", "items": [{"term": "Penerimaan barang", "text": "verifikasi pembelian dan kondisi fisik"}, {"term": "Pencatatan aset", "text": "pencatatan dan pelabelan setiap perangkat"}, {"term": "Stocktake", "text": "pemeriksaan fisik suku cadang dan hardware setiap bulan"}]}]}, {"company": "PT Lautan Luas Tbk", "role": "IT Support & Helpdesk", "start": "Apr 2015", "end": "Sep 2021", "summary": "Garda depan helpdesk di perusahaan terbuka: menangani kendala pengguna, menyalurkan tiket ke teknisi yang tepat, serta menjaga perangkat dan aset kantor tetap siap pakai.", "tags": ["ManageEngine", "Helpdesk", "Printer & scanner", "Perusahaan Tbk"], "groups": [{"title": "Dukungan pengguna", "items": [{"term": "Troubleshooting", "text": "software, hardware, printer & scanner lewat tiket ManageEngine"}, {"term": "Onboarding", "text": "laptop/desktop karyawan baru, termasuk koneksi printer dan scanner"}, {"term": "Offboarding", "text": "menghapus data dan mereset perangkat karyawan yang resign secara aman"}, {"term": "Dokumentasi", "text": "menyusun panduan teknis dasar penggunaan IT"}]}, {"title": "Jaringan & perangkat", "items": [{"term": "Cabling", "text": "manajemen kabel LAN dan pemasangan RJ45"}, {"term": "Konfigurasi", "text": "troubleshooting jaringan printer, scanner, server, dan storage"}, {"term": "Vendor", "text": "koordinasi dengan penyedia komputer, printer, dan scanner"}]}, {"title": "Helpdesk & aset", "items": [{"term": "Manajemen tiket", "text": "memastikan tiket dari karyawan tersalurkan ke teknisi yang tepat"}, {"term": "Penerimaan barang", "text": "verifikasi pembelian dan kondisi fisik"}, {"term": "Pencatatan aset", "text": "pencatatan berkala dan pelabelan setiap perangkat"}]}]}], "categories": [{"id": "sys", "label": "Sistem Internal"}, {"id": "biz", "label": "Bisnis & Toko"}], "projects": [{"title": "Helpdesk IT — dashboard tiket permintaan & masalah", "desc": "Dashboard tiket internal yang di-host sendiri, dengan notifikasi Telegram untuk setiap tiket baru.", "category": "sys", "mark": "IT", "tags": ["Supabase", "GitHub Pages", "Telegram"], "link": ""}, {"title": "MyHeris — aplikasi absensi karyawan", "desc": "PWA mobile-first untuk absensi karyawan Heris Group, dengan Google Sheets sebagai basis data.", "category": "sys", "mark": "MH", "tags": ["PWA", "Google Sheets", "Heris Group"], "link": ""}, {"title": "Omni Review — penilaian kinerja 360°", "desc": "Aplikasi web penilaian kinerja kuartalan untuk perusahaan desain interior dengan 14 karyawan.", "category": "sys", "mark": "360", "tags": ["HR", "Web app", "Kuartalan"], "link": ""}, {"title": "YR Store — toko online pribadi", "desc": "Toko online milik sendiri, dibangun untuk web dan aplikasi mobile.", "category": "biz", "mark": "YR", "tags": ["E-commerce", "Web", "Mobile"], "link": ""}, {"title": "Heris Living — toko Shopee", "desc": "Copywriting produk dan operasional marketplace untuk toko bahan bangunan & interior.", "category": "biz", "mark": "HL", "tags": ["Shopee", "Copywriting"], "link": ""}], "skills": [{"label": "IT", "title": "Support & Sistem", "items": ["Helpdesk & troubleshooting", "Infrastruktur kantor & outlet", "Aplikasi internal (web & PWA)"]}, {"label": "HRGA", "title": "SDM & Umum", "items": ["Administrasi & kepatuhan HR", "Absensi & penilaian kinerja", "General affairs"]}, {"label": "Legal", "title": "Dokumen & Kontrak", "items": ["Penyusunan dokumen legal", "Dokumentasi operasional", "Administrasi perusahaan"]}, {"label": "Operasional", "title": "Bisnis & Marketplace", "items": ["Operasional toko Shopee", "Copywriting produk", "Riset & pengembangan"]}], "contact": {"email": "ramdi.kurniawan@gmail.com", "whatsapp": "082114150617", "linkedin": "https://www.linkedin.com/in/ramdi-kurniawan/", "github": "https://github.com/RMDKIT2026", "location": "Indonesia"}, "ideas": [{"title": "Pasang domain sendiri", "why": "ramdikurniawan.my.id atau .com terlihat jauh lebih profesional di CV dan LinkedIn daripada alamat github.io.", "done": false}, {"title": "Tambahkan link website di LinkedIn", "why": "Taruh di bagian Contact info dan Featured supaya recruiter menemukannya.", "done": false}, {"title": "Tombol unduh CV (PDF)", "why": "Recruiter sering butuh file CV untuk diteruskan ke HR.", "done": false}, {"title": "Screenshot asli setiap proyek", "why": "Tampilan nyata Helpdesk IT, MyHeris, dan Omni Review lebih meyakinkan daripada kotak inisial.", "done": false}, {"title": "Angka pencapaian nyata", "why": "Contoh: jumlah outlet yang Anda setup atau tiket yang ditangani per bulan — hanya jika datanya ada.", "done": false}, {"title": "Testimoni atasan atau rekan kerja", "why": "Satu-dua kutipan singkat menambah kepercayaan, terutama dari founder.", "done": false}, {"title": "Pendidikan & sertifikasi", "why": "Bagian ini belum ada; biasanya dicari recruiter.", "done": false}, {"title": "Versi bahasa Inggris", "why": "Tombol ID/EN membuka peluang ke perusahaan multinasional.", "done": false}, {"title": "Statistik pengunjung", "why": "GoatCounter atau Cloudflare Web Analytics gratis dan tanpa cookie, untuk tahu berapa orang yang membuka website.", "done": false}, {"title": "Formulir kontak", "why": "Formspree (gratis) memungkinkan pengunjung mengirim pesan tanpa membuka email.", "done": false}]}</script>
+<script type="application/json" id="seed">{"meta": {"title": "Ramdi Kurniawan", "description": "HRGA, Legal & IT Lead @ Heris Group — 11+ tahun di IT support & infrastruktur.", "updated": "2026-11-04"}, "profile": {"firstName": "RAMDI", "lastName": "KURNIAWAN", "headline": "HRGA, Legal & IT Lead", "company": "@ Heris Group", "taglines": ["Strategic Partner to Founder", "11+ Years in IT Support & Infrastructure"], "intro": "Membangun sistem HR, legal, dan IT untuk bisnis konstruksi & desain interior yang sedang tumbuh, bekerja langsung dengan founder.", "statusOn": true, "status": "Terbuka untuk peluang baru", "photo": "assets/photo.webp", "yearsLabel": "11+ tahun di IT & operasional"}, "experience": [{"company": "PT Katam Sejahtera Makmur · Heris Kontraktor", "role": "HRGA, IT, Legal & R&D", "start": "Mei 2026", "end": "Sekarang", "summary": "Memegang empat fungsi sekaligus di perusahaan kontraktor dan desain interior yang sedang tumbuh: administrasi HR & GA, infrastruktur IT, dokumen legal, serta riset dan pengembangan. Bekerja langsung dengan pemilik perusahaan.", "tags": ["HR compliance", "Sistem internal", "Dokumen legal", "R&D"], "groups": []}, {"company": "PT Ruang Hidup Nyaman · Heris Living", "role": "Sistem Operasional, Legal & Marketplace", "start": "Mei 2026", "end": "Sekarang", "summary": "Mendukung bisnis bahan bangunan dan interior Heris Living: dokumentasi legal & operasional, sistem absensi dan penilaian kinerja karyawan Heris Group, serta pengelolaan toko di Shopee.", "tags": ["Konstruksi & interior", "Shopee", "Copywriting produk"], "groups": []}, {"company": "PT Pretzelindo · Auntie Anne's Indonesia", "role": "IT Support Specialist", "start": "Sep 2021", "end": "Mei 2026", "summary": "Dukungan IT menyeluruh untuk kantor pusat dan jaringan outlet di seluruh Indonesia: helpdesk pengguna, pembukaan dan penutupan outlet, jaringan, hingga sistem POS dan digital signage.", "tags": ["Jira", "POS", "Digital signage", "CCTV", "Jaringan", "Retail F&B"], "groups": [{"title": "Dukungan pengguna", "items": [{"term": "Troubleshooting", "text": "menyelesaikan masalah software & hardware lewat tiket Jira"}, {"term": "Onboarding", "text": "menyiapkan laptop/desktop untuk karyawan baru"}, {"term": "Offboarding", "text": "menghapus data dan mereset perangkat karyawan yang resign secara aman agar siap dipakai kembali"}, {"term": "Dokumentasi", "text": "menyusun panduan teknis dasar penggunaan IT"}]}, {"title": "Infrastruktur & outlet", "items": [{"term": "Outlet baru", "text": "instalasi jaringan (router, switch, Wi-Fi) dan POS (terminal, printer, scanner)"}, {"term": "CCTV", "text": "pemasangan dan konfigurasi di outlet dan kantor pusat"}, {"term": "Penutupan outlet", "text": "membongkar dan mengemas perangkat IT secara sistematis tanpa kerusakan"}, {"term": "Kantor pusat", "text": "printer, konfigurasi Zoom, dan rak server"}, {"term": "Perjalanan dinas", "text": "dukungan teknis langsung ke outlet di berbagai kota di Indonesia"}]}, {"title": "Jaringan", "items": [{"term": "Cabling", "text": "manajemen kabel terstruktur dan pemasangan RJ45"}, {"term": "Perangkat jaringan", "text": "konfigurasi dasar dan troubleshooting switch, router, access point"}, {"term": "Vendor", "text": "koordinasi dengan ISP dan vendor eksternal"}]}, {"title": "POS & digital signage", "items": [{"term": "POS backend", "text": "pembaruan rutin, manajemen voucher dan pengguna"}, {"term": "Digital signage", "text": "mengelola dan memperbarui konten di semua outlet"}, {"term": "Sinkronisasi", "text": "memastikan tampilan outlet berjalan dan sinkron dengan sistem HO"}]}, {"title": "Aset IT", "items": [{"term": "Penerimaan barang", "text": "verifikasi pembelian dan kondisi fisik"}, {"term": "Pencatatan aset", "text": "pencatatan dan pelabelan setiap perangkat"}, {"term": "Stocktake", "text": "pemeriksaan fisik suku cadang dan hardware setiap bulan"}]}]}, {"company": "PT Lautan Luas Tbk", "role": "IT Support & Helpdesk", "start": "Apr 2015", "end": "Sep 2021", "summary": "Garda depan helpdesk di perusahaan terbuka: menangani kendala pengguna, menyalurkan tiket ke teknisi yang tepat, serta menjaga perangkat dan aset kantor tetap siap pakai.", "tags": ["ManageEngine", "Helpdesk", "Printer & scanner", "Perusahaan Tbk"], "groups": [{"title": "Dukungan pengguna", "items": [{"term": "Troubleshooting", "text": "software, hardware, printer & scanner lewat tiket ManageEngine"}, {"term": "Onboarding", "text": "laptop/desktop karyawan baru, termasuk koneksi printer dan scanner"}, {"term": "Offboarding", "text": "menghapus data dan mereset perangkat karyawan yang resign secara aman"}, {"term": "Dokumentasi", "text": "menyusun panduan teknis dasar penggunaan IT"}]}, {"title": "Jaringan & perangkat", "items": [{"term": "Cabling", "text": "manajemen kabel LAN dan pemasangan RJ45"}, {"term": "Konfigurasi", "text": "troubleshooting jaringan printer, scanner, server, dan storage"}, {"term": "Vendor", "text": "koordinasi dengan penyedia komputer, printer, dan scanner"}]}, {"title": "Helpdesk & aset", "items": [{"term": "Manajemen tiket", "text": "memastikan tiket dari karyawan tersalurkan ke teknisi yang tepat"}, {"term": "Penerimaan barang", "text": "verifikasi pembelian dan kondisi fisik"}, {"term": "Pencatatan aset", "text": "pencatatan berkala dan pelabelan setiap perangkat"}]}]}], "categories": [{"id": "sys", "label": "Sistem Internal"}, {"id": "biz", "label": "Bisnis & Toko"}], "projects": [{"title": "Helpdesk IT — dashboard tiket permintaan & masalah", "desc": "Dashboard tiket internal yang di-host sendiri, dengan notifikasi Telegram untuk setiap tiket baru.", "category": "sys", "mark": "IT", "tags": ["Supabase", "GitHub Pages", "Telegram"], "link": "", "role": "Perancang & pembangun", "timeline": "2026", "status": "", "detail": "Sistem tiket internal untuk mencatat permintaan dan masalah IT dari karyawan, supaya tidak ada lagi laporan yang tercecer di chat pribadi.\nSetiap tiket baru langsung dikirim sebagai notifikasi Telegram, jadi bisa ditangani lebih cepat dan riwayatnya tersimpan rapi.", "highlights": ["Tiket permintaan & masalah dalam satu dashboard", "Notifikasi Telegram otomatis untuk tiket baru", "Di-host gratis: GitHub Pages + Supabase"], "image": ""}, {"title": "MyHeris — aplikasi absensi karyawan", "desc": "PWA mobile-first untuk absensi karyawan Heris Group, dengan Google Sheets sebagai basis data.", "category": "sys", "mark": "MH", "tags": ["PWA", "Google Sheets", "Heris Group"], "link": "", "role": "Perancang & pembangun", "timeline": "2026", "status": "", "detail": "Aplikasi absensi berbasis web yang bisa dipasang di HP seperti aplikasi biasa (PWA), dibuat untuk karyawan Heris Group.\nData tersimpan di Google Sheets sehingga tim HR bisa langsung mengolah rekap tanpa sistem tambahan.", "highlights": ["Mobile-first, bisa dipasang di layar utama HP", "Google Sheets sebagai basis data", "Rekap absensi langsung bisa diolah HR"], "image": ""}, {"title": "Omni Review — penilaian kinerja 360°", "desc": "Aplikasi web penilaian kinerja kuartalan untuk perusahaan desain interior dengan 14 karyawan.", "category": "sys", "mark": "360", "tags": ["HR", "Web app", "Kuartalan"], "link": "", "role": "Perancang & pembangun", "timeline": "2026", "status": "Sudah online", "detail": "Sistem penilaian kinerja kuartalan dengan pendekatan 360°: karyawan menilai diri sendiri, rekan menilai secara anonim, dan atasan menilai pencapaian target.\nDirancang untuk 8 divisi, dari sales, drafter, dan arsitek sampai tim proyek dan pelaksana lapangan, dengan peran berbeda untuk direktur, admin, atasan, dan karyawan.", "highlights": ["Bobot penilaian: KPI, peer review anonim, atasan, dan self-assessment", "Skala 1–5 dari Unsatisfactory sampai Outstanding", "Siklus per kuartal untuk 14 karyawan"], "image": ""}, {"title": "Asset Management IT — inventaris aset kantor", "desc": "Aplikasi pencatatan aset IT kantor dengan label QR yang bisa dipindai lewat HP dan dicetak dari printer thermal.", "category": "sys", "mark": "QR", "tags": ["Django", "Python", "QR code", "Printer thermal"], "link": "", "role": "Perancang & pembangun", "timeline": "2026", "status": "Sudah dipakai", "detail": "Mencatat laptop, monitor, dan komputer kantor lengkap dengan lokasi dan pemakainya. Setiap aset punya label QR yang berisi data lengkap dan bisa dibaca aplikasi pemindai apa pun.\nLabel dicetak langsung dari printer thermal Bluetooth 58 mm, dan serah terima aset ke karyawan menghasilkan formulir yang siap ditandatangani.", "highlights": ["Label QR dicetak dari printer thermal 58 mm", "Scan aset langsung dari HP", "Formulir serah terima aset siap cetak"], "image": ""}, {"title": "YR Store — toko online pribadi", "desc": "Toko online milik sendiri, dibangun untuk web dan aplikasi mobile.", "category": "biz", "mark": "YR", "tags": ["E-commerce", "Web", "Mobile"], "link": "", "role": "Pemilik & pembangun", "timeline": "2026", "status": "Dalam pengembangan", "detail": "Toko online milik sendiri untuk perlengkapan dan aksesoris furnitur, dibangun dari nol: katalog per kategori, keranjang, pembayaran, dan pengiriman.\nDikerjakan bertahap, dimulai dari backend, toko web, dan panel admin, lalu aplikasi mobile.", "highlights": ["Katalog, keranjang, dan panel admin", "Rencana integrasi kurir JNE, POS, SPX, dan same-day", "Pembayaran transfer manual + payment gateway"], "image": ""}, {"title": "Heris Living — toko Shopee", "desc": "Copywriting produk dan operasional marketplace untuk toko bahan bangunan & interior.", "category": "biz", "mark": "HL", "tags": ["Shopee", "Copywriting"], "link": "", "role": "Copywriting & operasional", "timeline": "2026 – sekarang", "status": "Berjalan", "detail": "Mengelola toko Shopee Heris Living yang menjual hardware, lem, aksesoris furnitur, dan produk kayu custom.\nMenulis judul dan deskripsi produk yang jelas dan ramah SEO, juga untuk Tokopedia dan TikTok Shop.", "highlights": ["Copywriting judul & deskripsi untuk banyak SKU", "Format deskripsi yang ringkas dan konsisten", "Marketplace: Shopee, Tokopedia, TikTok Shop"], "image": ""}], "skills": [{"label": "IT", "title": "Support & Sistem", "items": ["Helpdesk & troubleshooting", "Infrastruktur kantor & outlet", "Aplikasi internal (web & PWA)"]}, {"label": "HRGA", "title": "SDM & Umum", "items": ["Administrasi & kepatuhan HR", "Absensi & penilaian kinerja", "General affairs"]}, {"label": "Legal", "title": "Dokumen & Kontrak", "items": ["Penyusunan dokumen legal", "Dokumentasi operasional", "Administrasi perusahaan"]}, {"label": "Operasional", "title": "Bisnis & Marketplace", "items": ["Operasional toko Shopee", "Copywriting produk", "Riset & pengembangan"]}], "contact": {"email": "ramdi.kurniawan@gmail.com", "whatsapp": "082114150617", "linkedin": "https://www.linkedin.com/in/ramdi-kurniawan/", "github": "https://github.com/ramdipc", "location": "Tangerang, Banten"}, "ideas": [{"title": "Pasang domain sendiri", "why": "ramdikurniawan.my.id atau .com terlihat jauh lebih profesional di CV dan LinkedIn daripada alamat github.io.", "done": false}, {"title": "Tambahkan link website di LinkedIn", "why": "Taruh di bagian Contact info dan Featured supaya recruiter menemukannya.", "done": false}, {"title": "Tombol unduh CV (PDF)", "why": "Recruiter sering butuh file CV untuk diteruskan ke HR.", "done": true}, {"title": "Screenshot asli setiap proyek", "why": "Kartu & halaman detail proyek sudah siap; tinggal unggah screenshot lewat tab Proyek.", "done": false}, {"title": "Angka pencapaian nyata", "why": "Contoh: jumlah outlet yang Anda setup atau tiket yang ditangani per bulan — hanya jika datanya ada.", "done": false}, {"title": "Testimoni atasan atau rekan kerja", "why": "Satu-dua kutipan singkat menambah kepercayaan, terutama dari founder.", "done": false}, {"title": "Pendidikan & sertifikasi", "why": "Bagian ini belum ada; biasanya dicari recruiter.", "done": true}, {"title": "Versi bahasa Inggris", "why": "Tombol ID/EN membuka peluang ke perusahaan multinasional.", "done": true}, {"title": "Statistik pengunjung", "why": "GoatCounter atau Cloudflare Web Analytics gratis dan tanpa cookie, untuk tahu berapa orang yang membuka website.", "done": false}, {"title": "Formulir kontak", "why": "Formspree (gratis) memungkinkan pengunjung mengirim pesan tanpa membuka email.", "done": false}]}</script>
 <script>
 (function(){
-  if(/[?&]preview=1/.test(location.search))document.documentElement.classList.add('pv');
+  var isPreview=/[?&]preview=1/.test(location.search);
+  if(isPreview)document.documentElement.classList.add('pv');
   var $=function(id){return document.getElementById(id)};
   var ARROW='<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>';
   var ICONS={
@@ -312,10 +392,13 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
   function waPretty(n){n=String(n||'').replace(/\D/g,'');return n.replace(/^(\d{4})(\d{4})(\d+)$/,'$1-$2-$3')}
   function short(u){return String(u||'').replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,'')}
   function letters(word,cls,start){return '<span class="w '+cls+'">'+Array.from(word).map(function(ch,i){return '<span class="ch" style="--i:'+(start+i)+'">'+esc(ch)+'</span>'}).join('')+'</span>'}
-  var photoOverride=null, filter='all';
+  var photoOverride=null, imgOverrides={}, filter='all', DATA=null;
+  function pad(n){return (n<10?'0':'')+n}
+  function img(u){return imgOverrides[u]||u}
+  function slug(t){return String(t||'').toLowerCase().split(/\s+[—–-]\s+/)[0].normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'proyek'}
 
   function render(d){
-    var p=d.profile||{},c=d.contact||{};
+    DATA=d; var p=d.profile||{},c=d.contact||{};
     document.title=(d.meta&&d.meta.title)||'Portofolio';
     $('status').hidden=!p.statusOn; $('statusText').textContent=p.status||'';
     var f=p.firstName||'',l=p.lastName||'';
@@ -332,6 +415,12 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
     if(c.github)soc.push(['GitHub',safeUrl(c.github),ICONS.github]);
     $('socials').innerHTML=soc.map(function(s){var ext=/^https/.test(s[1]);return '<a class="pill" href="'+esc(s[1])+'"'+(ext?' target="_blank" rel="noopener"':'')+'>'+s[2]+esc(s[0])+'<svg class="arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a>'}).join('');
     $('years').textContent=p.yearsLabel||'';
+    var nExp=(d.experience||[]).length,nPr=(d.projects||[]).length,nSk=(d.skills||[]).length;
+    $('cntExp').textContent=nExp?pad(nExp):'';$('cntWork').textContent=nPr?pad(nPr):'';$('cntSkill').textContent=nSk?pad(nSk):'';
+    var yrs=(String(p.yearsLabel||'').match(/\d+\+?/)||[''])[0];
+    var co={};(d.experience||[]).forEach(function(e){co[String(e.company||'').split('·')[0].trim()]=1});
+    var st=[];if(yrs)st.push([yrs,'Tahun di IT & operasional']);st.push([pad(Object.keys(co).length),'Perusahaan']);st.push([pad(nPr),'Proyek dibangun']);st.push([pad(nSk),'Bidang keahlian']);
+    $('stats').innerHTML=st.map(function(x){return '<div class="stat"><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div>'}).join('');
 
     $('exp').innerHTML=(d.experience||[]).map(function(e,i){
       var id='acc'+i, open=i===0;
@@ -343,7 +432,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
         '<span class="tog" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 1v12M1 7h12"/></svg></span></button>'+
         '<div class="acc'+(open?' open':'')+'" id="'+id+'" role="region"><div><div class="body"><p>'+esc(e.summary)+'</p>'+
         '<div class="tags">'+(e.tags||[]).map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join('')+'</div>'+
-        (groups?'<div class="groups">'+groups+'</div>':'')+'</div></div></div></li>';
+        (groups?'<button class="more" type="button" aria-expanded="false" aria-controls="'+id+'g">Lihat rincian tugas <span class="n">'+pad((e.groups||[]).reduce(function(a,g){return a+(g.items||[]).length},0))+'</span><span class="i"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></span></button><div class="gwrap" id="'+id+'g"><div><div class="groups">'+groups+'</div></div></div>':'')+'</div></div></div></li>';
     }).join('');
 
     var cats=[{id:'all',label:'Semua'}].concat(d.categories||[]), projects=d.projects||[];
@@ -351,13 +440,10 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
     $('tabs').innerHTML='<span class="ind" aria-hidden="true"></span>'+cats.map(function(k){
       var n=k.id==='all'?projects.length:projects.filter(function(pr){return pr.category===k.id}).length;
       return '<button type="button" role="tab" data-f="'+esc(k.id)+'" aria-selected="'+(k.id===filter)+'">'+esc(k.label)+'<span class="n">'+n+'</span></button>'}).join('');
-    var W=[[42,88,76,82],[30,60,60,70],[50,70,40,64],[36,55,66,48],[46,80,52,70]];
     $('grid').innerHTML=projects.map(function(pr,i){
-      var w=W[i%W.length], link=safeUrl(pr.link), tag=link?'a':'article';
-      return '<'+tag+' class="card" data-k="'+esc(pr.category)+'"'+(link?' href="'+esc(link)+'" target="_blank" rel="noopener"':'')+'>'+
-        '<div class="screen" aria-hidden="true"><div class="bar"><i></i><i></i><i></i></div><div class="r a" style="width:'+w[0]+'%"></div><div class="r" style="width:'+w[1]+'%"></div><div class="r" style="width:'+w[2]+'%"></div><div class="r" style="width:'+w[3]+'%"></div><div class="big">'+esc(pr.mark||'')+'</div></div>'+
+      return '<button type="button" class="card" data-k="'+esc(pr.category)+'" data-case="'+i+'" aria-label="Lihat detail: '+esc(pr.title)+'">'+screen(pr,i)+
         '<div class="card-body"><h3>'+esc(pr.title)+'</h3><p>'+esc(pr.desc)+'</p><div class="tags">'+(pr.tags||[]).map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join('')+'</div>'+
-        (link?'<span class="go">Lihat proyek '+ARROW+'</span>':'')+'</div></'+tag+'>'}).join('');
+        '<span class="go">Lihat detail '+ARROW+'</span></div></button>'}).join('');
     applyFilter(false);
 
     $('skills').innerHTML=(d.skills||[]).map(function(s){return '<div class="skill"><span class="lbl">'+esc(s.label)+'</span><h3>'+esc(s.title)+'</h3><ul>'+(s.items||[]).map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div>'}).join('');
@@ -368,7 +454,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
     $('ctas').innerHTML=ctas.join('');
     var rows=[];
     if(c.email)rows.push(['EMAIL','<a href="mailto:'+esc(c.email)+'">'+esc(c.email)+'</a><button class="copy" type="button" data-copy="'+esc(c.email)+'">Salin</button>']);
-    if(c.whatsapp)rows.push(['WHATSAPP','<a href="'+esc(waLink(c.whatsapp))+'" target="_blank" rel="noopener">'+esc(waPretty(c.whatsapp))+'</a><button class="copy" type="button" data-copy="'+esc(c.whatsapp)+'">Salin</button>']);
+    if(c.whatsapp)rows.push(['WHATSAPP','<a href="'+esc(waLink(c.whatsapp))+'" target="_blank" rel="noopener">Chat langsung →</a>']);
     if(c.linkedin)rows.push(['LINKEDIN','<a href="'+esc(safeUrl(c.linkedin))+'" target="_blank" rel="noopener">'+esc(short(c.linkedin))+'</a>']);
     if(c.github)rows.push(['GITHUB','<a href="'+esc(safeUrl(c.github))+'" target="_blank" rel="noopener">'+esc(short(c.github))+'</a>']);
     if(c.location)rows.push(['LOKASI',esc(c.location)]);
@@ -376,7 +462,83 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
     $('copy').textContent='© '+new Date().getFullYear()+' '+[p.firstName,p.lastName].filter(Boolean).map(function(s){return s.charAt(0)+s.slice(1).toLowerCase()}).join(' ');
     $('updated').textContent=d.meta&&d.meta.updated?'Diperbarui '+new Date(d.meta.updated+'T00:00:00').toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}):'';
     requestAnimationFrame(function(){moveInd($('tabs'),$('tabs').querySelector('[aria-selected="true"]'));spy();});
+    reveal();
+    if($('case').open&&caseIdx!=null){if(caseIdx<(d.projects||[]).length)fillCase(caseIdx);else closeCase()}
+    else openFromHash();
   }
+
+  var W=[[42,88,76,82],[30,60,60,70],[50,70,40,64],[36,55,66,48],[46,80,52,70]];
+  function screen(pr,i){
+    if(pr.image)return '<div class="screen shot" aria-hidden="true"><img src="'+esc(img(pr.image))+'" alt="" loading="lazy" decoding="async"></div>';
+    var w=W[i%W.length];
+    return '<div class="screen" aria-hidden="true"><div class="bar"><i></i><i></i><i></i></div><div class="r a" style="width:'+w[0]+'%"></div><div class="r" style="width:'+w[1]+'%"></div><div class="r" style="width:'+w[2]+'%"></div><div class="r" style="width:'+w[3]+'%"></div><div class="big">'+esc(pr.mark||'')+'</div></div>';
+  }
+
+  /* ---------- scroll reveal ---------- */
+  var io=null;
+  function done1(el){el.classList.remove('rv','seen');el.style.removeProperty('--d');el.dataset.rvd='1'}
+  function reveal(){
+    if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.classList.contains('pv'))return;
+    document.documentElement.classList.add('rv-on');
+    if(!io)io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add('seen');io.unobserve(t);setTimeout(function(){done1(t)},1300)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    var groups=[['.sheet:not(.hero) .head',0],['.stat',1],['#exp>li',1],['#grid>.card',2],['.skill',1],['.contact>div',1],['.contact dl',1]];
+    groups.forEach(function(g){[].forEach.call(document.querySelectorAll(g[0]),function(el,i){if(el.dataset.rvd||el.hidden)return;el.classList.add('rv');el.style.setProperty('--d',g[1]?i%4:0);io.observe(el)})});
+  }
+
+  /* ---------- project detail (case study) ---------- */
+  var caseIdx=null, lastFocus=null;
+  function catLabel(id){var k=(DATA.categories||[]).filter(function(c){return c.id===id})[0];return k?k.label:''}
+  function fillCase(i){
+    var L=DATA.projects||[],pr=L[i];if(!pr)return;caseIdx=i;
+    var parts=String(pr.title||'').split(/\s+[—–]\s+/), name=parts[0], sub=parts.slice(1).join(' — ');
+    var link=safeUrl(pr.link), c=DATA.contact||{};
+    var meta=[];
+    if(pr.role)meta.push(['Peran',esc(pr.role)]);
+    if(pr.timeline)meta.push(['Waktu',esc(pr.timeline)]);
+    if((pr.tags||[]).length)meta.push(['Tools','<div class="tools">'+pr.tags.map(function(t){return '<span>'+esc(t)+'</span>'}).join('')+'</div>']);
+    var paras=String(pr.detail||'').split(/\n\s*\n|\n/).map(function(x){return x.trim()}).filter(Boolean);
+    var hl=(pr.highlights||[]).filter(Boolean);
+    var prev=i>0?L[i-1]:null,next=i<L.length-1?L[i+1]:null;
+    var chips=[catLabel(pr.category),pr.status].filter(Boolean);
+    $('caseSheet').innerHTML=
+      '<div class="case-top"><button type="button" class="back" data-close><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 7H2M6 3 2 7l4 4"/></svg>Kembali</button>'+
+      ($('status').hidden?'':'<span class="status"><span class="dot" aria-hidden="true"></span>'+esc(DATA.profile.status)+'</span>')+'</div>'+
+      '<div class="case-grid"><div>'+(chips.length?'<div class="chips">'+chips.map(function(x){return '<span class="chip">'+esc(x)+'</span>'}).join('')+'</div>':'')+
+        '<h2 class="case-title" id="caseTitle">'+esc(name)+'<small>/'+pad(i+1)+'</small></h2>'+(sub?'<p class="case-sub">'+esc(sub)+'</p>':'')+
+        '<p class="case-desc">'+esc(pr.desc)+'</p>'+
+        '<div class="cta-row">'+(link?'<a class="btn" href="'+esc(link)+'" target="_blank" rel="noopener">Lihat langsung <span class="ic">'+ARROW+'</span></a>':'')+
+        '<a class="btn'+(link?' ghost':'')+'" href="#kontak" data-close>Diskusikan proyek serupa <span class="ic">'+ARROW+'</span></a></div></div>'+
+        (meta.length?'<dl class="meta">'+meta.map(function(m){return '<div><dt class="lbl">'+m[0]+'</dt><dd>'+m[1]+'</dd></div>'}).join('')+'</dl>':'<div></div>')+'</div>'+
+      '<div class="case-media">'+(pr.image?'<img src="'+esc(img(pr.image))+'" alt="Tampilan '+esc(name)+'">':screen(pr,i))+'</div>'+
+      ((paras.length||hl.length)?'<div class="case-body"><div>'+(paras.length?'<h3>Tentang proyek</h3>'+paras.map(function(x){return '<p>'+esc(x)+'</p>'}).join(''):'')+'</div>'+
+        '<div>'+(hl.length?'<h3>Sorotan</h3><ul>'+hl.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')+'</div></div>':'')+
+      '<div class="case-nav">'+(prev?'<button type="button" data-case="'+(i-1)+'"><span class="lbl">← Sebelumnya</span><b>'+esc(String(prev.title).split(/\s+[—–]\s+/)[0])+'</b></button>':'')+
+        (next?'<button type="button" class="nx" data-case="'+(i+1)+'"><span class="lbl">Berikutnya →</span><b>'+esc(String(next.title).split(/\s+[—–]\s+/)[0])+'</b></button>':'')+'</div>';
+  }
+  function openCase(i,fromHash){
+    var dlg=$('case');if(!DATA||!(DATA.projects||[])[i])return;
+    fillCase(i);
+    if(!dlg.open){lastFocus=document.activeElement;dlg.classList.remove('closing');if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');document.body.classList.add('locked')}
+    dlg.scrollTop=0;var b=dlg.querySelector('.back');if(b)b.focus({preventScroll:true});
+    if(!fromHash&&!isPreview)try{history.replaceState(null,'','#proyek/'+slug(DATA.projects[i].title))}catch(e){}
+  }
+  function closeCase(toHash){
+    var dlg=$('case');if(!dlg.open)return;
+    var finish=function(){dlg.classList.remove('closing');if(dlg.close)dlg.close();else dlg.removeAttribute('open');document.body.classList.remove('locked');caseIdx=null;
+      if(!isPreview)try{history.replaceState(null,'',toHash||(location.pathname+location.search))}catch(e){}
+      if(toHash){var t=document.querySelector(toHash);if(t)t.scrollIntoView({behavior:'smooth'})}else if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true})};
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return finish();
+    dlg.classList.add('closing');setTimeout(finish,260);
+  }
+  function openFromHash(){var m=location.hash.match(/^#proyek\/(.+)$/);if(!m||!DATA)return;var L=DATA.projects||[];
+    for(var i=0;i<L.length;i++)if(slug(L[i].title)===decodeURIComponent(m[1])){openCase(i,true);return}}
+  addEventListener('hashchange',function(){if(/^#proyek\//.test(location.hash))openFromHash()});
+  $('case').addEventListener('cancel',function(e){e.preventDefault();closeCase()});
+  $('case').addEventListener('click',function(e){
+    if(e.target===this){closeCase();return}
+    var cl=e.target.closest('[data-close]');if(cl){e.preventDefault();closeCase(cl.getAttribute('href')||null);return}
+    var nx=e.target.closest('[data-case]');if(nx){openCase(+nx.dataset.case)}
+  });
 
   function moveInd(box,el){var ind=box&&box.querySelector('.ind');if(!ind||!el)return;ind.style.width=el.offsetWidth+'px';ind.style.transform='translateX('+(el.offsetLeft-(box.classList.contains('tabs')?0:0))+'px)'}
 
@@ -385,7 +547,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
     var show=function(c){return filter==='all'||c.dataset.k===filter};
     if(!animate){cards.forEach(function(c){c.hidden=!show(c);if(!c.hidden)shown++});}
     else{
-      cards.forEach(function(c){if(!c.hidden&&!show(c))c.classList.add('out')});
+      cards.forEach(function(c){if(c.classList.contains('rv')){if(io)io.unobserve(c);done1(c)}if(!c.hidden&&!show(c))c.classList.add('out')});
       setTimeout(function(){var i=0;cards.forEach(function(c){c.classList.remove('out','in');c.hidden=!show(c);if(!c.hidden){shown++;c.style.setProperty('--i',i++);void c.offsetWidth;c.classList.add('in')}});
         $('count').textContent=shown+' proyek'},200);
       return;
@@ -396,6 +558,9 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
   document.addEventListener('click',function(e){
     var t=e.target.closest('[role="tab"]');
     if(t&&t.dataset.f){filter=t.dataset.f;[].forEach.call(t.parentNode.querySelectorAll('[role="tab"]'),function(b){b.setAttribute('aria-selected',b===t)});moveInd(t.parentNode,t);applyFilter(true);return;}
+    if($('case').contains(e.target))return;
+    var cs=e.target.closest('.card[data-case]');if(cs){openCase(+cs.dataset.case);return}
+    var mo=e.target.closest('.more');if(mo){var op=mo.getAttribute('aria-expanded')!=='true';mo.setAttribute('aria-expanded',op);document.getElementById(mo.getAttribute('aria-controls')).classList.toggle('open',op);return}
     var r=e.target.closest('.row-btn');
     if(r){var open=r.getAttribute('aria-expanded')!=='true';r.setAttribute('aria-expanded',open);document.getElementById(r.getAttribute('aria-controls')).classList.toggle('open',open);return;}
     var cp=e.target.closest('[data-copy]');
@@ -422,10 +587,10 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-f
 
   /* data: seed first if remote is slow, then live content.json */
   var seed={};try{seed=JSON.parse($('seed').textContent)}catch(e){}
-  var isPreview=/[?&]preview=1/.test(location.search), done=false;
+  var done=false;
   function go(d){done=true;render(d)}
   if(isPreview){
-    addEventListener('message',function(e){if(e.origin===location.origin&&e.data&&e.data.type==='rk-preview'){photoOverride=e.data.photoUrl||null;render(e.data.content)}});
+    addEventListener('message',function(e){if(e.origin===location.origin&&e.data&&e.data.type==='rk-preview'){photoOverride=e.data.photoUrl||null;imgOverrides=e.data.imgUrls||{};render(e.data.content)}});
     go(seed); try{parent.postMessage({type:'rk-ready'},location.origin)}catch(e){}
   }else{
     var timer=setTimeout(function(){if(!done)go(seed)},1500);

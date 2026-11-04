@@ -132,6 +132,8 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ink);box
 .photo-box{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
 .photo-box .ph-img{width:120px;height:160px;border-radius:14px;background:var(--paper);border:1px solid var(--line);display:grid;place-items:end center;overflow:hidden}
 .photo-box img{width:100%;height:100%;object-fit:contain;object-position:bottom}
+.photo-box .ph-img.shot{width:200px;height:120px;place-items:stretch}
+.photo-box .ph-img.shot img{object-fit:cover;object-position:top}
 .idea{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:14px;background:var(--card);border:1px solid var(--line);transition:opacity .3s,background-color .3s}
 .idea.done{opacity:.6}
 .idea.done .it{text-decoration:line-through}
@@ -227,7 +229,7 @@ var I={
 function ic(n){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+I[n]+'</svg>'}
 
 /* ---------------- GitHub API ---------------- */
-var cfg=null, sha=null, published='', data=null, photoPreview=null;
+var cfg=null, sha=null, published='', data=null, photoPreview=null, imgPreviews={};
 function api(path,opt){
   opt=opt||{};
   return fetch('https://api.github.com/repos/'+encodeURIComponent(cfg.owner)+'/'+encodeURIComponent(cfg.repo)+path,{
@@ -278,6 +280,7 @@ function ensure(){
   var d=data;d.meta=d.meta||{};d.profile=d.profile||{};d.profile.taglines=d.profile.taglines||[];d.contact=d.contact||{};
   ['experience','projects','skills','categories','ideas'].forEach(function(k){d[k]=d[k]||[]});
   d.experience.forEach(function(e){e.tags=e.tags||[];e.groups=e.groups||[]});
+  d.projects.forEach(function(p){p.tags=p.tags||[];p.highlights=p.highlights||[]});
 }
 
 /* ---------------- state / dirty ---------------- */
@@ -312,7 +315,7 @@ var pvOn=false;
 $('pvBtn').addEventListener('click',function(){pvOn=!pvOn;this.setAttribute('aria-pressed',pvOn);$('preview').hidden=!pvOn;$('bodyGrid').classList.toggle('with-preview',pvOn);
   if(pvOn&&!$('pvFrame').src)$('pvFrame').src='../index.html?preview=1';else sendPreview();});
 addEventListener('message',function(e){if(e.origin===location.origin&&e.data&&e.data.type==='rk-ready')sendPreview()});
-function sendPreview(){if(!pvOn||!data)return;var f=$('pvFrame');try{f.contentWindow.postMessage({type:'rk-preview',content:data,photoUrl:photoPreview},location.origin)}catch(e){}}
+function sendPreview(){if(!pvOn||!data)return;var f=$('pvFrame');try{f.contentWindow.postMessage({type:'rk-preview',content:data,photoUrl:photoPreview,imgUrls:imgPreviews},location.origin)}catch(e){}}
 
 /* ---------------- navigation (tabs) ---------------- */
 var TABS=[
@@ -371,6 +374,8 @@ function wire(root){
     h.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target===h){e.preventDefault();h.click()}})});
   [].forEach.call(root.querySelectorAll('[data-act]'),function(b){b.addEventListener('click',function(e){e.stopPropagation();act(b.dataset.act,b.dataset.list,+b.dataset.i,b)})});
   var up=root.querySelector('#photoFile');if(up)up.addEventListener('change',uploadPhoto);
+  [].forEach.call(root.querySelectorAll('[data-projimg]'),function(el){el.addEventListener('change',function(e){uploadProjImg(e,+el.dataset.projimg)})});
+  [].forEach.call(root.querySelectorAll('[data-noimg]'),function(el){el.addEventListener('click',function(){var i=+el.dataset.noimg;data.projects[i].image='';openKey='projects.'+i;var sc=$('main').scrollTop;go(current);$('main').scrollTop=sc;changed()})});
   var imp=root.querySelector('#importFile');if(imp)imp.addEventListener('change',importJSON);
 }
 function subtitle(spec){var parts=spec.split('|');return parts.map(function(p){return getP(p)||''}).filter(Boolean).join(' · ')}
@@ -391,7 +396,7 @@ function act(a,list,i,btn){
 }
 var TEMPLATES={
   experience:function(){return {company:'Perusahaan baru',role:'',start:'',end:'Sekarang',summary:'',tags:[],groups:[]}},
-  projects:function(){return {title:'Proyek baru',desc:'',category:(data.categories[0]||{}).id||'',mark:'NEW',tags:[],link:''}},
+  projects:function(){return {title:'Proyek baru',desc:'',category:(data.categories[0]||{}).id||'',mark:'NEW',tags:[],link:'',role:'',timeline:'',status:'',detail:'',highlights:[],image:''}},
   skills:function(){return {label:'Bidang',title:'Keahlian baru',items:[]}},
   categories:function(){return {id:'kat'+Date.now().toString(36).slice(-4),label:'Kategori baru'}},
   ideas:function(){return {title:'Ide baru',why:'',done:false}}
@@ -441,7 +446,14 @@ var VIEWS={
       return item('projects',i,L.length,b+'.title',b+'.tags',
         f('Judul',b+'.title')+f('Deskripsi',b+'.desc',{area:true})+
         '<div class="row three">'+sel+f('Inisial di kartu',b+'.mark',{hint:'2–3 huruf'})+f('Link (opsional)',b+'.link',{type:'url',ph:'https://…'})+'</div>'+
-        f('Label (pisahkan dengan koma)',b+'.tags',{kind:'list'}))
+        f('Tools / label (pisahkan dengan koma)',b+'.tags',{kind:'list'})+
+        '<div class="field"><span class="fl">Screenshot proyek</span><div class="photo-box"><div class="ph-img shot">'+(p.image?'<img alt="Screenshot '+esc(p.title)+'" src="'+esc(imgPreviews[p.image]||('../'+p.image))+'">':'<span style="margin:auto;font-size:12px;color:var(--mute)">Belum ada</span>')+'</div>'+
+        '<div class="field" style="flex:1;min-width:200px"><input type="file" data-projimg="'+i+'" accept="image/png,image/jpeg,image/webp" aria-label="Unggah screenshot"><span class="hint">Tampil di kartu dan halaman detail. Terbaik: screenshot layar laptop (lebar). Otomatis dikecilkan; klik <b>Terbitkan</b> agar tampil.</span>'+
+        (p.image?'<button type="button" class="btn ghost sm" data-noimg="'+i+'" style="align-self:flex-start">Hapus screenshot</button>':'')+'</div></div></div>'+
+        '<div class="field"><span class="fl">Halaman detail proyek</span><span class="hint">Muncul saat pengunjung mengklik kartu proyek. Kosongkan yang tidak perlu.</span></div>'+
+        '<div class="row three">'+f('Peran Anda',b+'.role',{ph:'Perancang & pembangun'})+f('Waktu',b+'.timeline',{ph:'2026'})+f('Status',b+'.status',{ph:'Sudah dipakai'})+'</div>'+
+        f('Cerita proyek',b+'.detail',{area:true,hint:'Masalah apa yang diselesaikan dan bagaimana. Pisahkan paragraf dengan baris baru.'})+
+        f('Sorotan (satu per baris)',b+'.highlights',{kind:'list',sep:'\n',hint:'3 poin terkuat, pakai angka bila ada.'}))
     }).join('')+addBtn('projects','Tambah proyek')+
     '<div class="box"><h3>Kategori filter</h3><p style="margin:0;color:var(--mute);font-size:13.5px">Tab filter di atas kartu proyek. "Semua" selalu ada otomatis.</p>'+
     cats.map(function(c,i){return '<div class="sh" style="display:flex;gap:8px;align-items:center"><input type="text" data-p="categories.'+i+'.label" value="'+esc(c.label)+'" aria-label="Nama kategori"><button type="button" class="icon-btn del" data-act="del" data-list="categories" data-i="'+i+'" data-name="kategori '+esc(c.label)+'" aria-label="Hapus kategori">'+ic('trash')+'</button></div>'}).join('')+
@@ -495,6 +507,25 @@ function uploadPhoto(e){
     URL.revokeObjectURL(url);
   };
   img.onerror=function(){toast('File gambar tidak bisa dibaca',true)};img.src=url;
+}
+
+/* ---------------- project screenshot upload ---------------- */
+function uploadProjImg(e,i){
+  var file=e.target.files[0];if(!file)return;
+  if(!/^image\//.test(file.type)){toast('Pilih file gambar (PNG/JPG/WebP)',true);return}
+  var im=new Image(),url=URL.createObjectURL(file);
+  im.onload=function(){
+    var w=Math.min(1600,im.naturalWidth),h=Math.round(im.naturalHeight*w/im.naturalWidth),cv=document.createElement('canvas');cv.width=w;cv.height=h;cv.getContext('2d').drawImage(im,0,0,w,h);
+    cv.toBlob(function(blob){
+      if(!blob){toast('Gagal memproses gambar',true);return}
+      var name='assets/proyek-'+(i+1)+'-'+Date.now().toString(36)+'.webp';setState('busy','Mengunggah screenshot…');
+      blob.arrayBuffer().then(function(buf){return putFile(name,b64encode(new Uint8Array(buf)),'Tambah screenshot proyek')}).then(function(){
+        data.projects[i].image=name;imgPreviews[name]=URL.createObjectURL(blob);openKey='projects.'+i;var sc=$('main').scrollTop;go(current);$('main').scrollTop=sc;changed();toast('Screenshot terunggah. Klik Terbitkan agar tampil di website.');
+      }).catch(function(err){toast('Gagal mengunggah: '+err.message,true);changed()});
+    },'image/webp',0.85);
+    URL.revokeObjectURL(url);
+  };
+  im.onerror=function(){toast('File gambar tidak bisa dibaca',true)};im.src=url;
 }
 
 /* ---------------- toast ---------------- */
