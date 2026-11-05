@@ -333,6 +333,20 @@
       "image": "assets/proyek-4-mw3jbu36.webp"
     },
     {
+      "title": "Apps Management Leads",
+      "desc": "",
+      "category": "sys",
+      "mark": "New Leads",
+      "tags": [],
+      "link": "",
+      "role": "Perancang & Pengembang",
+      "timeline": "2026",
+      "status": "Sudah dipakai",
+      "detail": "",
+      "highlights": [],
+      "image": "assets/proyek-7-mw3jueow.webp"
+    },
+    {
       "title": "YR Store — toko online pribadi",
       "desc": "Toko online milik sendiri, dibangun untuk web dan aplikasi mobile.",
       "category": "biz",
@@ -374,20 +388,6 @@
         "Marketplace: Shopee, Tokopedia, TikTok Shop"
       ],
       "image": ""
-    },
-    {
-      "title": "Apps Management Leads",
-      "desc": "",
-      "category": "sys",
-      "mark": "New Leads",
-      "tags": [],
-      "link": "",
-      "role": "Perancang & Pengembang",
-      "timeline": "2026",
-      "status": "Sudah dipakai",
-      "detail": "",
-      "highlights": [],
-      "image": "assets/proyek-7-mw3jueow.webp"
     }
   ],
   "skills": [
