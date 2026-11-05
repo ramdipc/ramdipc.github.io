@@ -2,7 +2,7 @@
   "meta": {
     "title": "Ramdi Kurniawan",
     "description": "HRGA, Legal & IT Lead @ Heris Group — 11+ tahun di IT support & infrastruktur.",
-    "updated": "2026-11-04"
+    "updated": "2026-11-05"
   },
   "profile": {
     "firstName": "RAMDI",
@@ -278,14 +278,14 @@
       "link": "",
       "role": "Perancang & pembangun",
       "timeline": "2026",
-      "status": "",
+      "status": "On Progress",
       "detail": "Aplikasi absensi berbasis web yang bisa dipasang di HP seperti aplikasi biasa (PWA), dibuat untuk karyawan Heris Group.\nData tersimpan di Google Sheets sehingga tim HR bisa langsung mengolah rekap tanpa sistem tambahan.",
       "highlights": [
         "Mobile-first, bisa dipasang di layar utama HP",
         "Google Sheets sebagai basis data",
         "Rekap absensi langsung bisa diolah HR"
       ],
-      "image": ""
+      "image": "assets/proyek-2-mw3jkxmr.webp"
     },
     {
       "title": "Omni Review — penilaian kinerja 360°",
@@ -330,7 +330,7 @@
         "Scan aset langsung dari HP",
         "Formulir serah terima aset siap cetak"
       ],
-      "image": ""
+      "image": "assets/proyek-4-mw3jbu36.webp"
     },
     {
       "title": "YR Store — toko online pribadi",
